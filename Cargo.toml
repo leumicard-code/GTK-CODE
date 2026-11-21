@@ -1,0 +1,29 @@
+[package]
+name = "gtk-code-editor"
+version = "1.0.0"
+edition = "2021"
+authors = ["Shay Kadosh"]
+license = "MIT"
+description = "Studio Code Editor — Pure GTK 4 + Pango/Cairo GPU-Accelerated IDE with 24 Themes, Multi-Cursor, Minimap, Folding & Vim Mode"
+
+[dependencies]
+gtk = { version = "0.9", package = "gtk4", features = ["v4_12"] }
+pangocairo = "0.20"
+syntect = { version = "5.2", default-features = false, features = ["default-fancy"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[package.metadata.rpm]
+package = "gtk-code-editor"
+
+[package.metadata.rpm.cargo]
+buildflags = ["--release"]
+
+[package.metadata.rpm.targets]
+gtk-code-editor = { path = "/usr/bin/gtk-code-editor" }

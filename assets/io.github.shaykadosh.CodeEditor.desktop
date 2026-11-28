@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Studio Code Editor
+Comment=Pure GTK 4 + Pango/Cairo GPU-Accelerated Code Editor
+Exec=gtk-code-editor %F
+Icon=io.github.shaykadosh.CodeEditor
+Terminal=false
+Categories=Development;IDE;TextEditor;
+StartupNotify=true
